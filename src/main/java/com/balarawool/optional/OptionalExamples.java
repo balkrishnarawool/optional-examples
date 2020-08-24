@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.balarawool.optional.OptionalExamples.Address.Type.EMAIL;
 import static com.balarawool.optional.OptionalExamples.Country.BE;
 import static com.balarawool.optional.OptionalExamples.Country.FR;
 import static com.balarawool.optional.OptionalExamples.Country.IN;
@@ -38,7 +37,7 @@ public class OptionalExamples {
 
 
         // Example - using ifPresent() instead of get()
-        Person person = new Person("Bruce Wayne", new Address(EMAIL, "bruce.wayne@wayneenterprises.com"));
+        Person person = new Person("Bruce Wayne", new Address(Address.Type.EMAIL, "bruce.wayne@wayneenterprises.com"));
         // Using get()
         Optional<String> email = person.retrieveEmail();
         if(email.isPresent()) {
@@ -76,7 +75,7 @@ public class OptionalExamples {
         private Address address;
 
         public Optional<String> retrieveEmail() {
-            return address.getType().equals(EMAIL)
+            return address.getType().equals(Address.Type.EMAIL)
 			    ? Optional.of(address.getValue())
 			    : Optional.empty();
         }
