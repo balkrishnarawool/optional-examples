@@ -149,7 +149,7 @@ public class OptionalConciseExamples {
 
     public static Optional<ShippingObject> createShippingObjectConcise(DimensionsRetriever retriever) {
         return retriever.retrieveLength().flatMap(length ->
-                retriever.retrieveWidth().flatMap(width ->
+                    retriever.retrieveWidth().flatMap(width ->
                         retriever.retrieveHeight().map(height -> new ShippingObject(length, width, height))));
     }
 
